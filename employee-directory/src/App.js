@@ -6,13 +6,11 @@ import Footer from "./components/Footer";
 
 function App() {
     return (
-    //   <Router>
         <div>
           <Navbar />
           <EmployeeContainer />
           <Footer /> 
         </div>
-    //   {/* </Router> */}
     );
   }
   

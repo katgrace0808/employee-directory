@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Container from "./Container"
+import Row from "./Row"
 import EmployeeList from "./EmployeeList"
 import API from "../utils/API";
 
@@ -46,20 +47,14 @@ class EmployeeContainer extends Component {
 
     render() {
         return (
-            // <div>
-            //     <h1>Employees of This Amazing Company!</h1>
-            // </div>
             <div>
                 <Container style={{ minHeight: "80%" }}>
-
-                    <EmployeeList
-                        employees={this.state.results}
-                    />
+                    <Row>
+                        <EmployeeList employees={this.state.results} />
+                    </Row>
                 </Container>
-
             </div>
         );
-
     }
 }
 export default EmployeeContainer;
