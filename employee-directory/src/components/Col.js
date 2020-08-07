@@ -5,6 +5,7 @@ import React from "react";
 
 function Column(props) {
   const size = props.size.split(" ").map(size => "col-" + size).join(" ");
+  console.log(props)
 
   return (
     <div className={size}>
