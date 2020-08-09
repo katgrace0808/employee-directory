@@ -2,3 +2,7 @@
     background-color: teal;
     margin-bottom: 25px;
 }
+
+.navbar-brand {
+    font-size: xx-large; 
+}

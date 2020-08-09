@@ -1,10 +1,11 @@
 import React from "react";
+import "./filter.css";
 
 function Filter() {
     return (
             <div>
-
-                    <button type="submit">Filter by</button>
+                <input className="input"></input>
+                <button type="submit">Search</button>
             </div>
     )
 }
