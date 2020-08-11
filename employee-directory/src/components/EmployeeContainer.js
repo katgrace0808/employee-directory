@@ -39,10 +39,18 @@ class EmployeeContainer extends Component {
             )
     }
 
-    handleInputChange = event => {
+    onChange = event => {
         event.preventDefault();
-        this.getEmployee({search: event.target.value});
-      };
+        API.getEmployee(this.state.search)
+        console.log(this.state)
+          .then(res => {
+            if (res.data.status === "error") {
+              throw new Error(res.data.message);
+            }
+            this.setState({ results: res.data.results, error: "" });
+          })
+          .catch(err => this.setState({ error: err.message }));
+        }
 
     onSort = employeeSort => {
         this.setState({ employeeSort })
@@ -50,12 +58,21 @@ class EmployeeContainer extends Component {
 
     render() {
 
-        const { error, isLoaded, employees, employeeSort, results } = this.state;
-        console.log(results);
-        console.log(employees);
+        const { error, isLoaded, employees, employeeSort, results, search } = this.state;
+
         const sortEmployeeList = employees.sort((a, b) => {
             const isReversed = (employeeSort === "asc") ? 1 : -1;
-            return isReversed * a.name.last.localeCompare(b.name.last)
+            const isNotReversed = (employeeSort !== "asc") ? 1 : -1;
+            
+            if (isReversed) {
+
+            return (
+                isReversed * a.name.last.localeCompare(b.name.last)
+            )} else if(isNotReversed) {
+                return (
+                    isNotReversed * b.name.last.localeCompare(a.name.last)
+                )
+            }
         });
         if (error) {
             return <div>Error: {error.message}</div>;
@@ -65,7 +82,7 @@ class EmployeeContainer extends Component {
             return (
                 <div>
                     <Filter 
-                        handleFormSubmit={this.handleFormSubmit}
+                        onChange={this.onChange}
                     />
                     <Container fluid="md" style={{ minHeight: "80%" }}>
                         <Row>

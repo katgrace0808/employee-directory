@@ -5,5 +5,12 @@
 
 .list-group-item {
     padding-top: 200px;
+}
 
+.table-striped {
+    background-color: rgb(211, 210, 210);
+}
+
+.button {
+    background-color: rgb(150, 196, 196);
 }

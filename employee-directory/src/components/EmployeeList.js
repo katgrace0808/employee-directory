@@ -5,14 +5,12 @@ function EmployeeList(props) {
   console.log(props)
   return (
     <div>
-    <table className="table">
+    <table className="table table-striped">
       <thead className="table-head">
         <tr>
-          <th><button type="submit" onClick={()=>props.onSort("asc")}>Name</button></th>
-          {/* <th>Name</th> */}
-          <th><button type="submit" onClick={()=>props.onSort("asc")}>Email</button></th>
-          <th><button type="submit" onClick={()=>props.onSort("asc")}>Phone</button></th>
-          <th><button type="submit" onClick={()=>props.onSort("asc")}>Picture</button></th>
+          <th><button className="button" type="submit" onClick={()=>props.onSort("asc")}>Name</button></th>
+          <th><button className="button" type="submit" onClick={()=>props.onSort("asc")}>Email</button></th>
+          <th><button className="button" type="submit" onClick={()=>props.onSort("asc")}>Phone</button></th>
         </tr>
       </thead>
       {props.employees.map((employee) => (

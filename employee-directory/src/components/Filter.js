@@ -3,8 +3,8 @@ import "./filter.css";
 
 function Filter() {
     return (
-            <div>
-                <input className="input"></input>
+            <div className="table-responsive">
+                <input className="input" type="text" ></input>
                 <button type="submit">Search</button>
             </div>
     )
